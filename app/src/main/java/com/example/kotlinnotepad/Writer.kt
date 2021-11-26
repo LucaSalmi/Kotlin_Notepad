@@ -11,7 +11,7 @@ class Writer(text: String, context: Context) {
     init {
 
         val path = context.filesDir
-        val letDirectory = File(path, "LET")
+        val letDirectory = File(path, "Notes")
         letDirectory.mkdirs()
 
         var file = File(letDirectory, text)

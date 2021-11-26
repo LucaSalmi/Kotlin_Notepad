@@ -5,8 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlinnotepad.databinding.ActivityMainBinding
 
-class Adapter (private val list: MutableList<String>) :
+private lateinit var binding: ActivityMainBinding
+
+class Adapter (private val list: MutableList<String>, private val onItemClicked: (position: Int) -> Unit) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
 
 
@@ -15,7 +18,8 @@ class Adapter (private val list: MutableList<String>) :
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.card_view_layout, parent, false)
 
-        return ViewHolder(view)
+        
+        return ViewHolder(view, onItemClicked)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -23,15 +27,27 @@ class Adapter (private val list: MutableList<String>) :
 
         holder.textView.text = list[position]
 
+
     }
 
     override fun getItemCount(): Int {
         return list.size
     }
 
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+    class ViewHolder(ItemView: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(ItemView), View.OnClickListener {
 
         val textView: TextView = itemView.findViewById(R.id.textView)
+
+        init {
+            textView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+
+            val position = adapterPosition
+            onItemClicked(position)
+        }
+
 
     }
 
