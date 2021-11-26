@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             notesArray.add(s)
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemInserted(notesArray.size)
             binding.noteSpace.text?.clear()
             Writer(s, this)
 
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding.noteSpace.setText(notesArray[position])
         Reader.deleteNote(notesArray[position], this)
         notesArray.removeAt(position)
-        adapter.notifyDataSetChanged()
+        adapter.notifyItemRemoved(position)
 
     }
 
