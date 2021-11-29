@@ -11,16 +11,16 @@ class Writer(text: String, context: Context) {
     init {
 
         val path = context.filesDir
-        val letDirectory = File(path, "Notes")
+        val letDirectory = File(path, context.getString(R.string.folder_name))
         letDirectory.mkdirs()
 
         var file = File(letDirectory, text)
         val isNewFileCreated : Boolean = file.createNewFile()
 
         if (isNewFileCreated){
-            Toast.makeText(context, "note saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.save_note_text), Toast.LENGTH_SHORT).show()
         }else{
-            Toast.makeText(context, "note already exists", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.note_exist_text), Toast.LENGTH_SHORT).show()
         }
     }
 }

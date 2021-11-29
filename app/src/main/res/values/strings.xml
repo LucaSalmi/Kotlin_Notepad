@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_text">Your Note</string>
     <string name="btn_text">Save</string>
+    <string name="save_note_text">Note Saved</string>
+    <string name="note_exist_text">The Note Already Exists</string>
+    <string name="folder_name">Notes</string>
 </resources>
