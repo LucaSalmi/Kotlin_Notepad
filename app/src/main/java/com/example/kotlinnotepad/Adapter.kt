@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlinnotepad.databinding.ActivityMainBinding
 
-private lateinit var binding: ActivityMainBinding
 
 class Adapter (private val list: MutableList<String>, private val onItemClicked: (position: Int) -> Unit) :
     RecyclerView.Adapter<Adapter.ViewHolder>() {
@@ -39,7 +37,7 @@ class Adapter (private val list: MutableList<String>, private val onItemClicked:
         val textView: TextView = itemView.findViewById(R.id.textView)
 
         init {
-            textView.setOnClickListener(this)
+            ItemView.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
