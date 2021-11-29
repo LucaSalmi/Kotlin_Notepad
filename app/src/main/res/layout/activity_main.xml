@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/noteInput"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_10"
         app:endIconMode="clear_text">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="your note"
+            android:hint= "@string/hint_text"
             android:id="@+id/note_space"></com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -27,9 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/noteInput"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_10"
         style="?attr/materialButtonOutlinedStyle"
-        android:text="save"></Button>
+        android:text="@string/btn_text"></Button>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notes_list"
